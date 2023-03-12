@@ -45,15 +45,13 @@ class ToppingsController {
     @Throws(URISyntaxException::class)
     fun create(@RequestBody account: ToppingsPreferences): ResponseEntity<ToppingsPreferences>? {
         val createdToppingsPreferences: ToppingsPreferences = toppingService.create(account)
-        return if (createdToppingsPreferences == null) {
-            ResponseEntity.notFound().build<ToppingsPreferences>()
-        } else {
+        return run {
             val uri: URI = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(createdToppingsPreferences.email)
                 .toUri()
             ResponseEntity.created(uri)
-                .body<ToppingsPreferences>(createdToppingsPreferences)
+                .body(createdToppingsPreferences)
         }
     }
 

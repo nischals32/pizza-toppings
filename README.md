@@ -4,11 +4,11 @@ A simple app that supports collecting favorite toppigs from a user (based on ema
 
 ## Description
 
-This app has been built in Java and Spring boot, and allows users to provide their favorite toppings along with their 
+This app has been built in Kotlin and Spring boot, and allows users to provide their favorite toppings along with their 
 email. Some requirements around app behaviour are
 1. The app should provide an endpoint to view toppings, and how many unique users have requested them.
 2. Only the last toppings submission for the user is saved.
-3. Special endpoint for retrieving your own favorite toppings based on your email.
+3. Special endpoint for retrieving your own favorite toppings based on YOUR email.
 
 ## Getting Started
 
@@ -42,7 +42,6 @@ curl --location 'localhost:8080/toppings/' \
 "email": "new-user@gmail.com",
 "toppings": ["pineapple", "green pepper", "olives"]    
 }'
-'
 ```
 2. Verify that the toppings added are now available with the initial counts
 
@@ -58,7 +57,6 @@ curl --location 'localhost:8080/toppings/' \
 "email": "my.email@gmail.com",
 "toppings": ["mushroom", "olives"]    
 }'
-'
 ```
 4. Verify the counts of toppings are now updated
 ```
@@ -78,7 +76,6 @@ curl --location 'localhost:8080/toppings/' \
 "email": "new-user@gmail.com",
 "toppings": ["pineapple"]    
 }'
-'
 ```
 7.  Verify the counts of toppings are now updated
 ```
