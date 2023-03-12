@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    image: 'docker-toppings-prefs:latest'
+    build: .
+    container_name: app
+    ports:
+      - "8080:8080"
+    links:
+      - redis
+
+  redis:
+    container_name: redis
+    image: 'redis'
+    hostname: redis
+    ports:
+      - "6379:6379"
