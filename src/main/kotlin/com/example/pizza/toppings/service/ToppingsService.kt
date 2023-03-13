@@ -27,6 +27,10 @@ class ToppingsService {
         // Save all counts based on the new toppings in preferences
         saveCountsForAllToppings(toppingsPreferences.toppings)
 
+        // If we were doing async event-driven, then publish the event to stream or to a transactional outbox
+        // instead of manipulating the other count repository like above. We can use Redis streams as a potential impl
+        // https://medium.com/nerd-for-tech/event-driven-architecture-with-redis-streams-using-spring-boot-a81a1c9a4cde
+
         // save the new preferences
         return toppingsRepository.save(toppingsPreferences)
     }
